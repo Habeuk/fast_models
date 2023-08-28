@@ -36,18 +36,16 @@ use Drupal\formatage_models\Plugin\Layout\Teasers\FormatageModelsTeasers;
  *
  */
 
-class FnewsTeaserMember extends FormatageModelsTeasers
-{
+class FnewsTeaserMember extends FormatageModelsTeasers {
     /**
      *
      * {@inheritdoc}
      * @see \Drupal\formatage_models\Plugin\Layout\FormatageModels::__construct()
      */
-    public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager)
-    {
+    public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
         // TODO Auto-generated method stub
         parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'fast_models') . "/icons/teasers/f_news_teaser_member_map.png");
+        $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'fast_models') . "/icons/teasers/f_news_teaser_member_map.png");
     }
 
     /**
@@ -56,8 +54,7 @@ class FnewsTeaserMember extends FormatageModelsTeasers
      * @see \Drupal\formatage_models\Plugin\Layout\FormatageModels:build()
      *
      */
-    public function build(array $regions)
-    {
+    public function build(array $regions) {
 
         // TODO Auto-generated method stub
         $build = parent::build($regions);
@@ -71,8 +68,7 @@ class FnewsTeaserMember extends FormatageModelsTeasers
      * {@inheritdoc}
      *
      */
-    public function defaultConfiguration()
-    {
+    public function defaultConfiguration() {
         return parent::defaultConfiguration() + [
             'css' => '',
             'fntm' => [
@@ -119,6 +115,4 @@ class FnewsTeaserMember extends FormatageModelsTeasers
             ]
         ];
     }
-
-
 }

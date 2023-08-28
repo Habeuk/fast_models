@@ -41,7 +41,7 @@ use Drupal\formatage_models\Plugin\Layout\Teasers\FormatageModelsTeasers;
  *             remove at before 2x)
  */
 class FnewsTeaserMetroService extends FormatageModelsTeasers {
-  
+
   /**
    *
    * {@inheritdoc}
@@ -50,9 +50,9 @@ class FnewsTeaserMetroService extends FormatageModelsTeasers {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
     // TODO Auto-generated method stub
     parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-    $this->pluginDefinition->set('icon', drupal_get_path('module', 'fast_models') . "/icons/teasers/f_news_teaser_metro_service_small_map.png");
+    $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'fast_models') . "/icons/teasers/f_news_teaser_metro_service_small_map.png");
   }
-  
+
   /**
    *
    * {@inheritdoc}
@@ -60,14 +60,14 @@ class FnewsTeaserMetroService extends FormatageModelsTeasers {
    *
    */
   public function build(array $regions) {
-    
+
     // TODO Auto-generated method stub
     $build = parent::build($regions);
     FormatageModelsThemes::formatSettingValues($build);
     $this->messenger()->addWarning('deprecated layout : f_news_teaser_metro_service, please use orther f_news_teaser_metro_service(f_news_teaser_metro_service_small) ');
     return $build;
   }
-  
+
   /**
    *
    * {@inheritdoc}
@@ -130,5 +130,4 @@ class FnewsTeaserMetroService extends FormatageModelsTeasers {
       ]
     ];
   }
-  
 }

@@ -5,6 +5,7 @@
  *
  * @{inhreitdoc}
  */
+
 namespace Drupal\fast_models\Plugin\Layout\Sections\Menus;
 
 use Drupal\formatage_models\FormatageModelsThemes;
@@ -31,7 +32,7 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  *
  */
 class FastModelsFnewsFirstMenu extends FormatageModelsSection {
-  
+
   /**
    *
    * {@inheritdoc}
@@ -40,9 +41,9 @@ class FastModelsFnewsFirstMenu extends FormatageModelsSection {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
     // TODO Auto-generated method stub
     parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-    $this->pluginDefinition->set('icon', drupal_get_path('module', 'fast_models') . "/icons/menus/fast_models_fn_first_menu_map.png");
+    $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'fast_models') . "/icons/menus/fast_models_fn_first_menu_map.png");
   }
-  
+
   /**
    *
    * {@inheritdoc}
@@ -50,17 +51,17 @@ class FastModelsFnewsFirstMenu extends FormatageModelsSection {
    *
    */
   public function build(array $regions) {
-    
+
     // TODO Auto-generated method stub
     $build = parent::build($regions);
     FormatageModelsThemes::formatSettingValues($build);
-    
+
     if (is_array($build['fn_first_nav']))
       $build['fn_first_nav'] = $this->getMenus($build['fn_first_nav']);
     // dump($build['fn_first_nav']);
     return $build;
   }
-  
+
   private function getMenus(array $fn_first_nav) {
     foreach ($fn_first_nav as $k => $m) {
       if (isset($m['#base_plugin_id']) && $m['#base_plugin_id'] === 'system_menu_block') {
@@ -80,10 +81,10 @@ class FastModelsFnewsFirstMenu extends FormatageModelsSection {
             'first-nav'
           ]
         ];
-        
+
         // set new theme.
         $fn_first_nav[$k]['content']['#theme'] = 'layoutmenu_fast_models_fn_first_menu';
-        
+
         // add class
         $fn_first_nav[$k]['content']['#attributes'] = [
           'class' => [
@@ -96,7 +97,7 @@ class FastModelsFnewsFirstMenu extends FormatageModelsSection {
     }
     return $fn_first_nav;
   }
-  
+
   private function formatListMenus(array &$items) {
     foreach ($items as $k => $item) {
       if (!empty($item['attributes'])) {
@@ -123,7 +124,7 @@ class FastModelsFnewsFirstMenu extends FormatageModelsSection {
       }
     }
   }
-  
+
   /**
    *
    * {@inheritdoc}
@@ -148,5 +149,4 @@ class FastModelsFnewsFirstMenu extends FormatageModelsSection {
       ]
     ];
   }
-  
 }

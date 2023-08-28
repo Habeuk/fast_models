@@ -69,20 +69,17 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  * 
  */
 
-class FnewsSingleShowcaseSection extends FormatageModelsSection
-{
+class FnewsSingleShowcaseSection extends FormatageModelsSection {
 
     /**
      *
      * {@inheritdoc}
      * @see \Drupal\formatage_models\Plugin\Layout\FormatageModels::__construct()
      */
-    public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) 
-    {
+    public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
         // TODO Auto-generated method stub
         parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'fast_models') . "/icons/sections/fnews_single_showcase_map.png");
-
+        $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'fast_models') . "/icons/sections/fnews_single_showcase_map.png");
     }
 
     /**
@@ -91,9 +88,8 @@ class FnewsSingleShowcaseSection extends FormatageModelsSection
      * @see \Drupal\formatage_models\Plugin\Layout\FormatageModels:build()
      * 
      */
-    public function build(array $regions) 
-    {
-        
+    public function build(array $regions) {
+
         // TODO Auto-generated method stub
         $build = parent::build($regions);
         FormatageModelsThemes::formatSettingValues($build);
@@ -110,7 +106,7 @@ class FnewsSingleShowcaseSection extends FormatageModelsSection
     private function getMenus(array $fn_scd_nav) {
         foreach ($fn_scd_nav as $k => $m) {
             if (isset($m['#base_plugin_id']) && $m['#base_plugin_id'] === 'field_block') {
-                               
+
                 /*$fn_scd_nav[$k]['#attributes'] = [
                     'class' => [
                         'tag-list'
@@ -128,8 +124,7 @@ class FnewsSingleShowcaseSection extends FormatageModelsSection
      * {@inheritdoc}
      * 
      */
-    public function defaultConfiguration ()
-    {
+    public function defaultConfiguration() {
         return parent::defaultConfiguration() + [
             'css' => '',
             'fnews_single' => [
@@ -263,7 +258,6 @@ class FnewsSingleShowcaseSection extends FormatageModelsSection
                     ]
                 ]
             ]
-        ];  
+        ];
     }
-
 }

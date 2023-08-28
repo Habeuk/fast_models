@@ -57,7 +57,7 @@ class FnewsFirstServiceSection extends FormatageModelsSection {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
     // TODO Auto-generated method stub
     parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-    $this->pluginDefinition->set('icon', drupal_get_path('module', 'fast_models') . "/icons/sections/fnews_first_service_map.png");
+    $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'fast_models') . "/icons/sections/fnews_first_service_map.png");
   }
 
   /**
@@ -166,7 +166,6 @@ class FnewsFirstServiceSection extends FormatageModelsSection {
           ]
         ]
       ]
-    ] + parent::defaultConfiguration() ;
+    ] + parent::defaultConfiguration();
   }
-
 }

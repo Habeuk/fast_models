@@ -35,7 +35,7 @@ use Drupal\formatage_models\Plugin\Layout\Teasers\FormatageModelsTeasers;
  * )
  */
 class FnewsTeaserMetroServiceSmall extends FormatageModelsTeasers {
-  
+
   /**
    *
    * {@inheritdoc}
@@ -44,9 +44,9 @@ class FnewsTeaserMetroServiceSmall extends FormatageModelsTeasers {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
     // TODO Auto-generated method stub
     parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-    $this->pluginDefinition->set('icon', drupal_get_path('module', 'fast_models') . "/icons/teasers/f_news_teaser_metro_service_map.png");
+    $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'fast_models') . "/icons/teasers/f_news_teaser_metro_service_map.png");
   }
-  
+
   /**
    *
    * {@inheritdoc}
@@ -54,14 +54,14 @@ class FnewsTeaserMetroServiceSmall extends FormatageModelsTeasers {
    *
    */
   public function build(array $regions) {
-    
+
     // TODO Auto-generated method stub
     $build = parent::build($regions);
     FormatageModelsThemes::formatSettingValues($build);
-    
+
     return $build;
   }
-  
+
   /**
    *
    * {@inheritdoc}
@@ -107,5 +107,4 @@ class FnewsTeaserMetroServiceSmall extends FormatageModelsTeasers {
       ]
     ] + parent::defaultConfiguration();
   }
-  
 }

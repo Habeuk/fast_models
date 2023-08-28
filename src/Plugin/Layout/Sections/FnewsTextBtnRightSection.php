@@ -30,18 +30,16 @@ use Drupal\formatage_models\Plugin\Layout\Sections\FormatageModelsSection;
  * 
  */
 
-class FnewsTextBtnRightSection extends FormatageModelsSection
-{
+class FnewsTextBtnRightSection extends FormatageModelsSection {
     /**
      *
      * {@inheritdoc}
      * @see \Drupal\formatage_models\Plugin\Layout\FormatageModels::__construct()
      */
-    public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) 
-    {
+    public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
         // TODO Auto-generated method stub
-        parent::__construct($configuration, $plugin_id, $plugin_definition,$styles_group_manager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'fast_models') . "/icons/sections/f_news_text_btn_right_map.png");
+        parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
+        $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'fast_models') . "/icons/sections/f_news_text_btn_right_map.png");
     }
 
     /**
@@ -50,13 +48,12 @@ class FnewsTextBtnRightSection extends FormatageModelsSection
      * @see \Drupal\formatage_models\Plugin\Layout\FormatageModels:build()
      * 
      */
-    public function build(array $regions) 
-    {
-        
+    public function build(array $regions) {
+
         // TODO Auto-generated method stub
         $build = parent::build($regions);
         FormatageModelsThemes::formatSettingValues($build);
-        
+
         return $build;
     }
 
@@ -65,8 +62,7 @@ class FnewsTextBtnRightSection extends FormatageModelsSection
      * {@inheritdoc}
      * 
      */
-    public function defaultConfiguration() 
-    {
+    public function defaultConfiguration() {
         return parent::defaultConfiguration() + [
             'css' => '',
             'fntbs' => [
@@ -94,5 +90,4 @@ class FnewsTextBtnRightSection extends FormatageModelsSection
             ]
         ];
     }
-
 }

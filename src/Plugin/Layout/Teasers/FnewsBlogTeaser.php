@@ -66,18 +66,16 @@ use Drupal\formatage_models\Plugin\Layout\Teasers\FormatageModelsTeasers;
  * 
  */
 
-class FnewsBlogTeaser extends FormatageModelsTeasers
-{
+class FnewsBlogTeaser extends FormatageModelsTeasers {
     /**
      *
      * {@inheritdoc}
      * @see \Drupal\formatage_models\Plugin\Layout\FormatageModels::__construct()
      */
-    public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager)
-    {
+    public function __construct(array $configuration, $plugin_id, $plugin_definition, StylesGroupManager $styles_group_manager) {
         // TODO Auto-generated method stub
         parent::__construct($configuration, $plugin_id, $plugin_definition, $styles_group_manager);
-        $this->pluginDefinition->set('icon', drupal_get_path('module', 'fast_models') . "/icons/teasers/f_news_blog_teaser_map.png");
+        $this->pluginDefinition->set('icon', $this->pathResolver->getPath('module', 'fast_models') . "/icons/teasers/f_news_blog_teaser_map.png");
     }
 
     /**
@@ -86,16 +84,15 @@ class FnewsBlogTeaser extends FormatageModelsTeasers
      * @see \Drupal\formatage_models\Plugin\Layout\FormatageModels:build()
      * 
      */
-    public function build(array $regions) 
-    {
-        
+    public function build(array $regions) {
+
         // TODO Auto-generated method stub
         $build = parent::build($regions);
         FormatageModelsThemes::formatSettingValues($build);
         if (is_array($build['tag_btn_list']))
             $build['tag_btn_list'] = $this->getMenus($build['tag_btn_list']);
         //dump($build['tag_btn_list']);
-        
+
         return $build;
     }
 
@@ -106,7 +103,7 @@ class FnewsBlogTeaser extends FormatageModelsTeasers
     private function getMenus(array $fn_scd_nav) {
         foreach ($fn_scd_nav as $k => $m) {
             if (isset($m['#base_plugin_id']) && $m['#base_plugin_id'] === 'field_block') {
-                               
+
                 $fn_scd_nav[$k]['#attributes'] = [
                     'class' => [
                         'blog-btn'
@@ -124,8 +121,7 @@ class FnewsBlogTeaser extends FormatageModelsTeasers
      * {@inheritdoc}
      * 
      */
-    public function defaultConfiguration() 
-    {
+    public function defaultConfiguration() {
         return parent::defaultConfiguration() + [
             'css' => '',
             'fnews_blog_teaser' => [
@@ -201,23 +197,23 @@ class FnewsBlogTeaser extends FormatageModelsTeasers
                             'label' => 'bloc description',
                             'value' => " A tellus risus dis. Orci sagittis sociosqu senectus est facilisis est facilisis neque rutrum"
                         ]
-                    ],'read_more_text' => [
+                    ], 'read_more_text' => [
                         'text_html' => [
                             'label' => 'read more text',
                             'value' => "Read More"
                         ]
-                    ],'log_in_link' => [
+                    ], 'log_in_link' => [
                         'text_html' => [
                             'label' => 'log in link',
                             'value' => "Log in"
                         ]
-                    ],'log_in_text' => [
+                    ], 'log_in_text' => [
                         'text_html' => [
                             'label' => 'Text login',
                             'value' => "to post comments"
                         ]
                     ],
-                     'comment' => [
+                    'comment' => [
                         'text_html' => [
                             'label' => 'Nombre de commentaire',
                             'value' => "2 comments"
@@ -227,5 +223,4 @@ class FnewsBlogTeaser extends FormatageModelsTeasers
             ]
         ];
     }
-
 }
