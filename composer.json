@@ -1,17 +1,15 @@
 {
-
-	"name": "habeuk/fast_models",
-	"description": "-- module for drupal site web customization --",
-	"type": "drupal-custom-module",
-	"license": "MIT",
-    "authors": [
-        {
-            "name": "tmc",
-            "email": "noumechaivan@gmail.com"
-        }
-    ],
-    "require" : {
-        "habeuk/formatage_models": "dev-3x | ^3.1"
+  "name": "habeuk/fast_models",
+  "description": "-- module for drupal site web customization --",
+  "type": "drupal-custom-module",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "tmc",
+      "email": "noumechaivan@gmail.com"
     }
-
+  ],
+  "require": {
+    "habeuk/formatage_models": "dev-3x | ^3.1|^4.0|dev-4x"
+  }
 }
