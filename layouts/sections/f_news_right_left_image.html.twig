@@ -1,8 +1,8 @@
 {% if content %}
 <section {{ attributes.addClass('img-rl-fnews')}}>
-    <div class="container">
-        <div class="irl-bloc row justify-content-between">
-            <div class="irl-bloc__text col-12 col-md-6">
+    <div {% if settings.config_section %} class="{{ settings.config_section.type_container }} {{ settings.config_section.container_class }}" {% else %} class="container" {% endif %}>
+        <div class="irl-bloc {{ settings.class_row }}">
+            <div class="irl-bloc__text {{ settings.class_col_left }}">
                 {% if content.right_left_title %}
                 <h1 {{ region_attributes.right_left_title.addClass(['irl-bloc__title','h1'])}}>
                     {{ content.right_left_title }}                        
@@ -20,13 +20,13 @@
                     {#{ content.right_left_button }#}
                 {% endif %}
             </div>
-            <div class="irl-bloc__img col-12 col-md-6">
-                {% if content.right_left_image %}
+            {% if content.right_left_image %}
+            <div class="irl-bloc__img {{ settings.class_col_right }}">                
                 <div {{ region_attributes.right_left_image.addClass('ibi__img')}}>
                     {{ content.right_left_image }}                    
-                </div>
-                {% endif %}
+                </div>                
             </div>
+            {% endif %}
         </div>
     </div>
 </section>
