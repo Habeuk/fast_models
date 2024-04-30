@@ -1,12 +1,11 @@
 {% if content %}
-	<div {{attributes.addClass(['more-card-item','aos-init']).setAttribute('data-aos','fade-up').setAttribute('data-aos-delay','200')}}>
+	<div {{attributes.addClass(['more-card-item'])}}>
 		{% if content.image %}
 			<div {{ region_attributes.image.addClass('mci-image')}}>
 				{{ content.image }}
 			</div>
-
 		{% endif %}
-		<div class="card-body">
+		<div class="card-body" data-aos="fade-up" data-aos-delay="150" data-aos-easing="ease-in-quad">
 			{% if content.title %}
 				<h5 {{ region_attributes.title.addClass('card-title')}}>
 					{{ content.title }}
